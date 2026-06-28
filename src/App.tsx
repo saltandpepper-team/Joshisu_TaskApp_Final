@@ -18,7 +18,10 @@ import {
   Info,
   ExternalLink,
   Github,
-  CloudLightning
+  CloudLightning,
+  Workflow,
+  Command,
+  ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -169,36 +172,36 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col font-sans relative overflow-hidden">
-      {/* 煌びやかな背景グラデーション装飾 */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans relative overflow-hidden selection:bg-indigo-500/30 selection:text-white">
+      {/* 魅惑的なネオンバックドロップオーラ */}
+      <div className="absolute top-[-15%] left-[-15%] w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[-15%] right-[-15%] w-[60%] h-[60%] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none" />
       
-      {/* グリッド風オーバーレイ背景 */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+      {/* 未来的なデジタルグリッド（極細・高精度） */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
       {/* ヘッダー */}
-      <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/85 backdrop-blur-md" id="main-header">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-3.5">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-violet-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-500/20 ring-4 ring-indigo-500/10">
+      <header className="sticky top-0 z-30 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl" id="main-header">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-violet-600 flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-indigo-500/20 ring-4 ring-indigo-500/10">
               F
             </div>
             <div>
               <h1 className="text-lg font-black tracking-tight text-white flex items-center gap-2">
                 Flask Cloud Run Suite
-                <span className="text-[10px] bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 px-2 py-0.5 rounded-full font-bold">PRO</span>
+                <span className="text-[10px] bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 px-2.5 py-0.5 rounded-lg font-bold tracking-wider">PREVIEW</span>
               </h1>
-              <p className="text-xs text-slate-400">GCP Cloud Run に最適化された、超美麗なタスク管理システムと構成ガイド</p>
+              <p className="text-xs text-slate-400">GCP Cloud Run に最適化された最高峰のデザイン ＆ デプロイメントガイド</p>
             </div>
           </div>
 
-          {/* 洗練されたタブコントローラー */}
-          <div className="flex bg-slate-950 border border-slate-800 p-1.2 rounded-2xl shadow-inner relative">
+          {/* 洗練されたプレミアム・ネオンタブ */}
+          <div className="flex bg-slate-900/60 border border-white/5 p-1.5 rounded-2xl shadow-2xl backdrop-blur-md relative">
             <button 
               id="tab-dashboard"
               onClick={() => setActiveTab('dashboard')}
-              className={`px-5 py-2 rounded-xl text-xs font-bold tracking-wide transition-all duration-300 flex items-center space-x-2 relative cursor-pointer ${
+              className={`px-6 py-2.5 rounded-xl text-xs font-extrabold tracking-wide transition-all duration-300 flex items-center space-x-2 relative cursor-pointer ${
                 activeTab === 'dashboard' 
                   ? 'text-white' 
                   : 'text-slate-400 hover:text-slate-200'
@@ -207,17 +210,17 @@ export default function App() {
               {activeTab === 'dashboard' && (
                 <motion.div 
                   layoutId="activeTabGlow"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl -z-10 shadow-lg shadow-blue-500/10"
-                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl -z-10 shadow-lg shadow-blue-500/20 border border-blue-400/20"
+                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
                 />
               )}
               <Layers className="w-3.5 h-3.5" />
-              <span>プレビュー</span>
+              <span>ダッシュボード</span>
             </button>
             <button 
               id="tab-guide"
               onClick={() => setActiveTab('guide')}
-              className={`px-5 py-2 rounded-xl text-xs font-bold tracking-wide transition-all duration-300 flex items-center space-x-2 relative cursor-pointer ${
+              className={`px-6 py-2.5 rounded-xl text-xs font-extrabold tracking-wide transition-all duration-300 flex items-center space-x-2 relative cursor-pointer ${
                 activeTab === 'guide' 
                   ? 'text-white' 
                   : 'text-slate-400 hover:text-slate-200'
@@ -226,51 +229,54 @@ export default function App() {
               {activeTab === 'guide' && (
                 <motion.div 
                   layoutId="activeTabGlow"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl -z-10 shadow-lg shadow-blue-500/10"
-                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl -z-10 shadow-lg shadow-blue-500/20 border border-blue-400/20"
+                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
                 />
               )}
               <Server className="w-3.5 h-3.5" />
-              <span>本番デプロイ手順</span>
+              <span>デプロイメント構成</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* メインセクション */}
+      {/* メインレイアウト */}
       <main className="flex-grow max-w-6xl w-full mx-auto px-6 py-10 relative z-10">
         {activeTab === 'dashboard' ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            {/* 左カラム: コントロール & フォーム */}
+            {/* 左側: コントロール ＆ 統計サマリー */}
             <div className="lg:col-span-4 space-y-6">
               
-              {/* 美しいインフォカード */}
-              <div className="relative overflow-hidden bg-gradient-to-b from-indigo-950/40 to-slate-950 border border-indigo-500/20 rounded-3xl p-6 shadow-xl">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none" />
-                <div className="flex items-start space-x-3.5">
-                  <div className="p-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-xl shadow-md">
-                    <CloudLightning className="w-5 h-5" />
+              {/* 美しいインフォグラフィックカード */}
+              <div className="relative overflow-hidden bg-slate-900/40 border border-indigo-500/10 rounded-3xl p-6 shadow-2xl backdrop-blur-sm">
+                <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="flex items-start space-x-4">
+                  <div className="p-2.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-2xl shadow-lg shadow-blue-500/5">
+                    <CloudLightning className="w-5 h-5 animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white tracking-wide">本番環境シミュレーター</h3>
-                    <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-                      この画面は GCP Cloud Run にデプロイした時と全く同じ挙動をエミュレートするフロントエンドプレビューです。右上のデプロイ手順タブから即座に Python コードを取得できます。
+                    <h3 className="text-sm font-bold text-white tracking-wide flex items-center gap-1.5">
+                      ステートレス同期
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    </h3>
+                    <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                      現在ワークスペースのルート直下に <strong>main.py</strong> と <strong>requirements.txt</strong> が生成済みです。そのまま本番デプロイが可能です。
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* フォームカード */}
-              <div className="bg-slate-950/60 border border-slate-800 rounded-3xl p-6 shadow-xl backdrop-blur-sm">
-                <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5 flex items-center space-x-2">
+              {/* タスク登録カード */}
+              <div className="bg-slate-900/60 border border-white/5 rounded-3xl p-6 shadow-2xl backdrop-blur-sm">
+                <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center space-x-2">
                   <Sparkles className="w-4 h-4 text-indigo-400" />
-                  <span>タスクを追加</span>
+                  <span>タスクを作成</span>
                 </h2>
                 
                 <form onSubmit={addTask} className="space-y-4">
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">タスクタイトル</label>
+                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">タスク名 *</label>
                     <input 
                       id="input-task-title"
                       type="text" 
@@ -278,39 +284,39 @@ export default function App() {
                       onChange={(e) => setTitle(e.target.value)}
                       required 
                       placeholder="例: main.py の動作検証" 
-                      className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all text-white placeholder-slate-600"
+                      className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all text-white placeholder-slate-700"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">説明 (任意)</label>
+                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">詳細・ログ情報 (任意)</label>
                     <textarea 
                       id="input-task-desc"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
-                      placeholder="タスクの詳細を入力してください..." 
+                      placeholder="詳細なタスク情報やメモ..." 
                       rows={3}
-                      className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all text-white placeholder-slate-600"
+                      className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all text-white placeholder-slate-700"
                     ></textarea>
                   </div>
                   
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">優先度</label>
+                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2.5">優先度</label>
                     <div className="grid grid-cols-3 gap-2">
                       {(['Low', 'Medium', 'High'] as const).map((p) => (
                         <button
                           key={p}
                           type="button"
                           onClick={() => setPriority(p)}
-                          className={`border rounded-2xl py-2.5 flex flex-col items-center justify-center cursor-pointer transition-all relative text-xs font-bold ${
+                          className={`border rounded-2xl py-2.5 flex flex-col items-center justify-center cursor-pointer transition-all relative text-xs font-extrabold ${
                             priority === p 
-                              ? 'border-indigo-500 bg-indigo-500/10 text-indigo-300 ring-2 ring-indigo-500/10' 
-                              : 'border-slate-800 bg-slate-900/40 text-slate-400 hover:bg-slate-900 hover:text-slate-200'
+                              ? 'border-indigo-500 bg-indigo-500/10 text-indigo-300 ring-2 ring-indigo-500/15' 
+                              : 'border-slate-800 bg-slate-950 text-slate-500 hover:bg-slate-900 hover:text-slate-300'
                           }`}
                         >
                           <span>{p}</span>
                           <span className={`w-1.5 h-1.5 rounded-full mt-1.5 ${
-                            p === 'High' ? 'bg-rose-500' : p === 'Medium' ? 'bg-amber-400' : 'bg-slate-500'
+                            p === 'High' ? 'bg-rose-500' : p === 'Medium' ? 'bg-amber-400' : 'bg-slate-600'
                           }`}></span>
                         </button>
                       ))}
@@ -320,65 +326,65 @@ export default function App() {
                   <button 
                     id="btn-add-task"
                     type="submit" 
-                    className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:opacity-95 text-white rounded-2xl text-xs font-bold tracking-wider shadow-lg shadow-indigo-500/15 transition-all flex items-center justify-center cursor-pointer"
+                    className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:brightness-110 active:scale-[0.99] text-white rounded-2xl text-xs font-bold tracking-wider shadow-lg shadow-indigo-500/20 transition-all flex items-center justify-center cursor-pointer border border-white/5"
                   >
-                    タスクを登録する
+                    登録する
                   </button>
                 </form>
               </div>
             </div>
 
-            {/* 右カラム: 統計 ＆ タスクリスト */}
+            {/* 右カラム: 統計 ＆ タスクビュー */}
             <div className="lg:col-span-8 space-y-6">
               
-              {/* 統計バッジ */}
+              {/* 統計表示カード */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col">
+                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-5 shadow-xl flex flex-col">
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">すべてのタスク</span>
                   <span className="text-3xl font-extrabold text-white mt-1.5 font-mono">{stats.total}</span>
                 </div>
-                <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col">
+                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-5 shadow-xl flex flex-col">
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">実行中</span>
                   <span className="text-3xl font-extrabold text-amber-400 mt-1.5 font-mono">{stats.pending}</span>
                 </div>
-                <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col">
+                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-5 shadow-xl flex flex-col">
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">完了</span>
                   <span className="text-3xl font-extrabold text-emerald-400 mt-1.5 font-mono">{stats.completed}</span>
                 </div>
               </div>
 
-              {/* リストビュー */}
+              {/* タスクの美麗表示エリア */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between px-1">
                   <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest">タスク一覧</h2>
                   <button 
                     id="btn-reset"
                     onClick={() => setTasks(INITIAL_TASKS)}
-                    className="text-xs text-slate-500 hover:text-indigo-400 flex items-center gap-1.5 font-semibold transition-colors cursor-pointer"
+                    className="text-xs text-slate-500 hover:text-indigo-400 flex items-center gap-1.5 font-bold transition-all cursor-pointer"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
-                    初期状態にリセット
+                    初期サンプルに戻す
                   </button>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-3.5">
                   <AnimatePresence mode="popLayout">
                     {tasks.length > 0 ? (
                       tasks.map((task) => (
                         <motion.div
                           layout
                           key={task.id}
-                          initial={{ opacity: 0, scale: 0.98, y: 8 }}
+                          initial={{ opacity: 0, scale: 0.98, y: 10 }}
                           animate={{ opacity: 1, scale: 1, y: 0 }}
                           exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ duration: 0.22 }}
-                          className={`bg-slate-950/40 border relative overflow-hidden ${
+                          transition={{ duration: 0.2 }}
+                          className={`bg-slate-900/40 border relative overflow-hidden transition-all duration-300 ${
                             task.completed 
-                              ? 'border-slate-800/40 bg-slate-950/10' 
-                              : 'border-slate-800 hover:border-slate-700/80 hover:shadow-xl'
-                          } rounded-3xl p-5 transition-all flex items-start justify-between gap-4`}
+                              ? 'border-white/5 bg-slate-950/20 opacity-60' 
+                              : 'border-white/5 bg-slate-900/30 hover:border-white/10 hover:shadow-xl hover:shadow-slate-950'
+                          } rounded-3xl p-5 flex items-start justify-between gap-4`}
                         >
-                          {/* 優先度別サイドカラーバー */}
+                          {/* 優先度別に側面に美しいグローカラーバー */}
                           <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${
                             task.completed 
                               ? 'bg-slate-800' 
@@ -390,47 +396,47 @@ export default function App() {
                           }`} />
 
                           <div className="flex items-start space-x-4 flex-grow pl-2">
-                            {/* 完了ボタン */}
+                            {/* 完了状態チェックボタン */}
                             <button 
                               onClick={() => toggleTask(task.id)}
-                              className={`mt-0.5 w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all cursor-pointer ${
+                              className={`mt-0.5 w-6 h-6 rounded-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${
                                 task.completed 
-                                  ? 'bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-500/10' 
-                                  : 'border-slate-800 hover:border-indigo-500 hover:bg-indigo-500/5 text-transparent'
+                                  ? 'bg-emerald-500 border-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/25 scale-105' 
+                                  : 'border-white/10 hover:border-indigo-400 hover:bg-indigo-500/5 text-transparent'
                               }`}
                             >
                               <Check className="w-3.5 h-3.5 stroke-[3.5]" />
                             </button>
 
-                            {/* 内容 */}
+                            {/* 内容情報 */}
                             <div className="flex-grow">
-                              <h3 className={`text-sm font-bold tracking-tight transition-all ${
-                                task.completed ? 'line-through text-slate-600' : 'text-slate-200'
+                              <h3 className={`text-sm font-bold tracking-tight transition-all duration-200 ${
+                                task.completed ? 'line-through text-slate-600' : 'text-slate-100'
                               }`}>
                                 {task.title}
                               </h3>
                               {task.description && (
-                                <p className={`text-xs text-slate-500 mt-1.5 leading-relaxed ${
+                                <p className={`text-xs text-slate-400 mt-2 leading-relaxed ${
                                   task.completed ? 'line-through text-slate-700' : ''
                                 }`}>
                                   {task.description}
                                 </p>
                               )}
                               
-                              {/* タグ表示 */}
-                              <div className="flex items-center space-x-2 mt-3.5">
+                              {/* 優先度別バッジ */}
+                              <div className="flex items-center space-x-2 mt-4">
                                 {task.priority === 'High' ? (
                                   <span className="px-2.5 py-0.5 rounded-md text-[9px] font-extrabold bg-rose-500/10 border border-rose-500/20 text-rose-400 tracking-wider">HIGH</span>
                                 ) : task.priority === 'Medium' ? (
                                   <span className="px-2.5 py-0.5 rounded-md text-[9px] font-extrabold bg-amber-500/10 border border-amber-500/20 text-amber-400 tracking-wider">MEDIUM</span>
                                 ) : (
-                                  <span className="px-2.5 py-0.5 rounded-md text-[9px] font-extrabold bg-slate-800 border border-slate-700/80 text-slate-400 tracking-wider">LOW</span>
+                                  <span className="px-2.5 py-0.5 rounded-md text-[9px] font-extrabold bg-slate-800 border border-slate-700/60 text-slate-400 tracking-wider">LOW</span>
                                 )}
                               </div>
                             </div>
                           </div>
 
-                          {/* 削除 */}
+                          {/* 削除ボタン */}
                           <button 
                             onClick={() => deleteTask(task.id)}
                             className="p-2 text-slate-600 hover:text-rose-400 hover:bg-rose-500/5 rounded-xl transition-all flex-shrink-0 cursor-pointer"
@@ -440,10 +446,10 @@ export default function App() {
                         </motion.div>
                       ))
                     ) : (
-                      <div className="bg-slate-950/20 border border-dashed border-slate-800 rounded-3xl py-14 px-4 text-center">
+                      <div className="bg-slate-900/10 border border-dashed border-slate-800 rounded-3xl py-14 px-4 text-center">
                         <AlertCircle className="w-12 h-12 text-slate-700 mx-auto mb-3" />
-                        <h4 className="text-sm font-bold text-slate-400">タスクが完了しました</h4>
-                        <p className="text-xs text-slate-500 mt-1">タスクを入力するか、サンプル状態に戻してみてください。</p>
+                        <h4 className="text-sm font-bold text-slate-400">現在タスクはありません</h4>
+                        <p className="text-xs text-slate-600 mt-1.5">左のパネルからタスクを登録してください。</p>
                       </div>
                     )}
                   </AnimatePresence>
@@ -453,10 +459,10 @@ export default function App() {
 
           </div>
         ) : (
-          /* デプロイ手順タブ */
-          <div className="bg-slate-950 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-4 min-h-[580px]">
-            {/* 左側サイドメニュー */}
-            <div className="md:col-span-1 bg-slate-950/80 border-r border-slate-800 p-5 space-y-1">
+          /* デプロイ手順タブ (ハイエンドなコードコンソール設計) */
+          <div className="bg-slate-950 border border-white/5 rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-4 min-h-[580px] backdrop-blur-xl">
+            {/* 左側ファイルブラウザ */}
+            <div className="md:col-span-1 bg-slate-950/80 border-r border-white/5 p-5 space-y-1.5">
               <div className="px-3 py-2 mb-4">
                 <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">構成ファイル</h3>
                 <p className="text-[10px] text-slate-400 mt-1 leading-relaxed">デプロイを完璧に行うための全ファイル構成です</p>
@@ -467,8 +473,8 @@ export default function App() {
                 onClick={() => setActiveGuideSubTab('main')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl text-xs font-bold flex items-center space-x-3 transition-all cursor-pointer relative ${
                   activeGuideSubTab === 'main' 
-                    ? 'bg-slate-900 border border-slate-800 text-blue-400 shadow-md' 
-                    : 'text-slate-400 hover:bg-slate-900/50 hover:text-slate-200'
+                    ? 'bg-slate-900 border border-white/5 text-blue-400 shadow-md shadow-slate-950/40' 
+                    : 'text-slate-500 hover:bg-slate-900/40 hover:text-slate-300'
                 }`}
               >
                 <Code className="w-4 h-4" />
@@ -476,7 +482,7 @@ export default function App() {
                   <p>main.py</p>
                   <p className="text-[9px] font-normal text-slate-500">Flask エントリポイント</p>
                 </div>
-                <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+                <ChevronRight className="w-3.5 h-3.5 opacity-40" />
               </button>
 
               <button 
@@ -484,16 +490,16 @@ export default function App() {
                 onClick={() => setActiveGuideSubTab('requirements')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl text-xs font-bold flex items-center space-x-3 transition-all cursor-pointer relative ${
                   activeGuideSubTab === 'requirements' 
-                    ? 'bg-slate-900 border border-slate-800 text-blue-400 shadow-md' 
-                    : 'text-slate-400 hover:bg-slate-900/50 hover:text-slate-200'
+                    ? 'bg-slate-900 border border-white/5 text-blue-400 shadow-md shadow-slate-950/40' 
+                    : 'text-slate-500 hover:bg-slate-900/40 hover:text-slate-300'
                 }`}
               >
                 <FileText className="w-4 h-4" />
                 <div className="flex-grow">
                   <p>requirements.txt</p>
-                  <p className="text-[9px] font-normal text-slate-500">外部パッケージ依存定義</p>
+                  <p className="text-[9px] font-normal text-slate-500">外部パッケージ依存関係</p>
                 </div>
-                <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+                <ChevronRight className="w-3.5 h-3.5 opacity-40" />
               </button>
 
               <button 
@@ -501,16 +507,16 @@ export default function App() {
                 onClick={() => setActiveGuideSubTab('dockerfile')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl text-xs font-bold flex items-center space-x-3 transition-all cursor-pointer relative ${
                   activeGuideSubTab === 'dockerfile' 
-                    ? 'bg-slate-900 border border-slate-800 text-blue-400 shadow-md' 
-                    : 'text-slate-400 hover:bg-slate-900/50 hover:text-slate-200'
+                    ? 'bg-slate-900 border border-white/5 text-blue-400 shadow-md shadow-slate-950/40' 
+                    : 'text-slate-500 hover:bg-slate-900/40 hover:text-slate-300'
                 }`}
               >
                 <Cpu className="w-4 h-4" />
                 <div className="flex-grow">
                   <p>Dockerfile</p>
-                  <p className="text-[9px] font-normal text-slate-500">コンテナ起動構成定義</p>
+                  <p className="text-[9px] font-normal text-slate-500">コンテナ構成定義</p>
                 </div>
-                <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+                <ChevronRight className="w-3.5 h-3.5 opacity-40" />
               </button>
 
               <button 
@@ -518,29 +524,29 @@ export default function App() {
                 onClick={() => setActiveGuideSubTab('deploy')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl text-xs font-bold flex items-center space-x-3 transition-all cursor-pointer relative ${
                   activeGuideSubTab === 'deploy' 
-                    ? 'bg-slate-900 border border-slate-800 text-blue-400 shadow-md' 
-                    : 'text-slate-400 hover:bg-slate-900/50 hover:text-slate-200'
+                    ? 'bg-slate-900 border border-white/5 text-blue-400 shadow-md shadow-slate-950/40' 
+                    : 'text-slate-500 hover:bg-slate-900/40 hover:text-slate-300'
                 }`}
               >
                 <Terminal className="w-4 h-4" />
                 <div className="flex-grow">
                   <p>Deploy コマンド</p>
-                  <p className="text-[9px] font-normal text-slate-500">GCP CLI による最速デプロイ</p>
+                  <p className="text-[9px] font-normal text-slate-500">最速コマンドライン指示</p>
                 </div>
-                <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+                <ChevronRight className="w-3.5 h-3.5 opacity-40" />
               </button>
             </div>
 
-            {/* 右側エディタ & 解説領域 */}
+            {/* 右側コード＆指示説明 */}
             <div className="md:col-span-3 p-6 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+                <div className="flex items-center justify-between pb-4 border-b border-white/5">
                   <div>
                     <h3 className="font-bold text-white text-sm">
-                      {activeGuideSubTab === 'main' && 'main.py (Flask アプリケーション)'}
+                      {activeGuideSubTab === 'main' && 'main.py (Flask 起動本体)'}
                       {activeGuideSubTab === 'requirements' && 'requirements.txt (パッケージ構成)'}
                       {activeGuideSubTab === 'dockerfile' && 'Dockerfile (コンテナ設定)'}
-                      {activeGuideSubTab === 'deploy' && 'GCP Cloud Run デプロイ手順'}
+                      {activeGuideSubTab === 'deploy' && 'GCP Cloud Run デプロイコマンド'}
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">
                       {activeGuideSubTab === 'main' && '環境変数から自動で PORT 番号を取得し、Cloud Run のネットワーク要件を満たす本番仕様のコードです。'}
@@ -560,12 +566,12 @@ export default function App() {
                       else text = DEPLOY_COMMANDS;
                       copyToClipboard(text, activeGuideSubTab);
                     }}
-                    className="flex items-center space-x-1.5 px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-bold transition-all border border-slate-800 cursor-pointer"
+                    className="flex items-center space-x-1.5 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-bold transition-all border border-white/5 cursor-pointer"
                   >
                     {copiedText === activeGuideSubTab ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-emerald-400">コピーしました！</span>
+                        <span className="text-emerald-400 font-extrabold">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -576,29 +582,72 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* コード表示エリア */}
-                <div className="mt-5 bg-slate-950 rounded-2xl p-4 overflow-x-auto border border-slate-800/80 shadow-inner max-h-[380px] relative">
-                  <div className="absolute top-3 right-3 text-[9px] bg-slate-900 border border-slate-800 text-slate-500 font-mono px-2 py-0.5 rounded uppercase">
+                {/* コード表示窓 (擬似シンタックスハイライト) */}
+                <div className="mt-5 bg-slate-950 rounded-2xl p-5 overflow-x-auto border border-white/5 shadow-inner max-h-[380px] relative">
+                  <div className="absolute top-3.5 right-4 text-[9px] bg-slate-900 border border-white/5 text-slate-500 font-mono px-2.5 py-1 rounded uppercase font-extrabold tracking-wider">
                     {activeGuideSubTab}
                   </div>
                   <pre className="text-slate-300 font-mono text-xs leading-relaxed pt-2">
-                    {activeGuideSubTab === 'main' && <code>{FLASK_MAIN_PREVIEW}</code>}
-                    {activeGuideSubTab === 'requirements' && (
-                      <code>{`Flask==3.0.3\ngunicorn==22.0.0`}</code>
+                    {activeGuideSubTab === 'main' && (
+                      <code>
+                        <span className="text-purple-400">import</span> os{"\n"}
+                        <span className="text-purple-400">from</span> flask <span className="text-purple-400">import</span> Flask, render_template_string, request, redirect, url_for{"\n\n"}
+                        app = Flask(__name__){"\n\n"}
+                        <span className="text-slate-500"># インメモリのタスクストア</span>{"\n"}
+                        tasks = {"[...]"} {"\n\n"}
+                        <span className="text-blue-400">@app.route</span>(<span className="text-emerald-400">"/"</span>){"\n"}
+                        <span className="text-purple-400">def</span> <span className="text-yellow-400">index</span>():{"\n"}
+                        {"    "}stats = {"{...}"}{"\n"}
+                        {"    "}port = os.environ.get(<span className="text-emerald-400">"PORT"</span>, <span className="text-emerald-400">"8080"</span>){"\n"}
+                        {"    "}<span className="text-purple-400">return</span> render_template_string(HTML_TEMPLATE, tasks=tasks, stats=stats, port=port){"\n\n"}
+                        <span className="text-slate-500"># ... (中略: エンドポイントの実装)</span>{"\n\n"}
+                        <span className="text-purple-400">if</span> __name__ == <span className="text-emerald-400">"__main__"</span>:{"\n"}
+                        {"    "}<span className="text-slate-500"># Cloud Run では環境変数 PORT からバインド先を動的に決定します。</span>{"\n"}
+                        {"    "}port = <span className="text-yellow-400">int</span>(os.environ.get(<span className="text-emerald-400">"PORT"</span>, <span className="text-cyan-400">8080</span>)){"\n"}
+                        {"    "}app.run(host=<span className="text-emerald-400">"0.0.0.0"</span>, port=port, debug=<span className="text-purple-400">False</span>)
+                      </code>
                     )}
-                    {activeGuideSubTab === 'dockerfile' && <code>{DOCKERFILE_CONTENT}</code>}
-                    {activeGuideSubTab === 'deploy' && <code>{DEPLOY_COMMANDS}</code>}
+                    {activeGuideSubTab === 'requirements' && (
+                      <code>
+                        <span className="text-blue-400">Flask</span>==<span className="text-emerald-400">3.0.3</span>{"\n"}
+                        <span className="text-blue-400">gunicorn</span>==<span className="text-emerald-400">22.0.0</span>
+                      </code>
+                    )}
+                    {activeGuideSubTab === 'dockerfile' && (
+                      <code>
+                        <span className="text-purple-400">FROM</span> python:3.11-slim{"\n\n"}
+                        <span className="text-purple-400">WORKDIR</span> /app{"\n\n"}
+                        <span className="text-purple-400">COPY</span> requirements.txt .{"\n"}
+                        <span className="text-purple-400">RUN</span> pip install --no-cache-dir -r requirements.txt{"\n\n"}
+                        <span className="text-purple-400">COPY</span> main.py .{"\n\n"}
+                        <span className="text-purple-400">ENV</span> PYTHONUNBUFFERED=1{"\n\n"}
+                        <span className="text-purple-400">CMD</span> [<span className="text-emerald-400">"gunicorn"</span>, <span className="text-emerald-400">"--bind"</span>, <span className="text-emerald-400">"0.0.0.0:8080"</span>, <span className="text-emerald-400">"--workers"</span>, <span className="text-emerald-400">"1"</span>, <span className="text-emerald-400">"main:app"</span>]
+                      </code>
+                    )}
+                    {activeGuideSubTab === 'deploy' && (
+                      <code>
+                        <span className="text-slate-500"># 1. gcloud CLI ログイン設定</span>{"\n"}
+                        gcloud auth login{"\n"}
+                        gcloud config set project <span className="text-emerald-400">[YOUR_PROJECT_ID]</span>{"\n\n"}
+                        <span className="text-slate-500"># 2. 自動デプロイコマンドを実行</span>{"\n"}
+                        gcloud run deploy flask-task-manager \<span className="text-purple-400"></span>{"\n"}
+                        {"  "}--source . \<span className="text-purple-400"></span>{"\n"}
+                        {"  "}--region asia-northeast1 \<span className="text-purple-400"></span>{"\n"}
+                        {"  "}--allow-unauthenticated
+                      </code>
+                    )}
                   </pre>
                 </div>
               </div>
 
-              {/* 注意点アドバイス */}
-              <div className="mt-6 p-4 bg-blue-950/20 border border-blue-500/10 rounded-2xl flex items-start space-x-3 text-xs text-blue-300">
-                <Info className="w-4.5 h-4.5 text-blue-400 mt-0.5 flex-shrink-0" />
+              {/* プロのアドバイス */}
+              <div className="mt-6 p-4 bg-indigo-950/20 border border-indigo-500/10 rounded-2xl flex items-start space-x-3.5 text-xs text-indigo-300">
+                <Info className="w-4.5 h-4.5 text-indigo-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="font-bold text-slate-200">GCP 運用のプロフェッショナルな知恵</h4>
-                  <p className="mt-1 leading-relaxed text-slate-400">
-                    Cloud Run はリクエストがなくなると自動的にインスタンスが終了し（スケールダウン）、必要に応じて再び自動起動（コールドスタート）します。このため、インメモリのタスクリストデータは起動ごとにリセットされます。本番環境でユーザーごとのタスクを完全に保持するには、<strong>GCP Firestore</strong> や <strong>Cloud SQL</strong> などの永続化層（データベース）を構築し、API 経由でデータを呼び出すように Flask 側を拡張してください。
+                  <h4 className="font-bold text-slate-200">GCP 本番開発のアドバイス:</h4>
+                  <p className="mt-1.5 leading-relaxed text-slate-400">
+                    Cloud Run はコンテナへのアクセスがない場合に、自動でインスタンスを「0」まで縮小（スケールダウン）します。
+                    これにより、Flask メモリ上のデータは初期化されます。実際のプロダクション開発においては、<strong>Cloud Firestore</strong> や <strong>Cloud SQL (PostgreSQL)</strong> をバックエンドデータベースとして接続することを推奨します。
                   </p>
                 </div>
               </div>
@@ -609,15 +658,15 @@ export default function App() {
       </main>
 
       {/* フッター */}
-      <footer className="bg-slate-950 border-t border-slate-800/60 py-8 mt-12 text-xs text-slate-500 relative z-20">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="bg-slate-950 border-t border-white/5 py-10 mt-12 text-xs text-slate-500 relative z-20">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
           <div>
-            <p className="font-bold text-slate-400">Flask Cloud Run Suite &copy; 2026</p>
-            <p className="mt-1">本プロダクトに必要なファイル（main.py、requirements.txt）は既にルートディレクトリに生成済みです。</p>
+            <p className="font-bold text-slate-300">Flask &amp; GCP Cloud Run Suite &copy; 2026</p>
+            <p className="mt-1 text-slate-500">本番構成ファイルはすべてすでにルートディレクトリ（/main.py, /requirements.txt）に作成完了しています。</p>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="bg-slate-900 px-3 py-1.5 rounded-lg text-slate-400 font-mono border border-slate-800">Python 3.11</span>
-            <span className="bg-slate-900 px-3 py-1.5 rounded-lg text-slate-400 font-mono border border-slate-800">Flask 3.0</span>
+            <span className="bg-slate-900 px-3 py-1.5 rounded-lg text-slate-400 border border-white/5 font-mono">Python 3.11</span>
+            <span className="bg-slate-900 px-3 py-1.5 rounded-lg text-slate-400 border border-white/5 font-mono">Flask 3.0</span>
           </div>
         </div>
       </footer>
