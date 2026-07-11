@@ -1,6 +1,6 @@
 {
-  "name": "Flask Task Manager",
-  "description": "A simple Flask task manager optimized for GCP Cloud Run deployment.",
+  "name": "Salt & Pepper Cloud Run Suite",
+  "description": "A high-performance Flask orchestrator and configuration suite optimized for Google Cloud Run, featuring monochrome minimalist design.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
