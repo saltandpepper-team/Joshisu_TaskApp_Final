@@ -94,6 +94,13 @@ HTML_TEMPLATE = """
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
     <div class="absolute top-0 left-1/3 w-[600px] h-[300px] bg-white/5 rounded-full blur-[160px] pointer-events-none"></div>
 
+    <!-- Large Watermark Text Background -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+        <span class="text-[12vw] font-black text-white/[0.015] tracking-[0.2em] uppercase whitespace-nowrap leading-none select-none">
+            SALT&amp;PEPPER
+        </span>
+    </div>
+
     <!-- HEADER -->
     <header class="glass-header sticky top-0 z-40 border-b border-white/5">
         <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">

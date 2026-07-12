@@ -178,6 +178,13 @@ export default function App() {
       {/* Precision Digital grid layout */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
+      {/* Large Watermark Text Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+        <span className="text-[12vw] font-black text-white/[0.015] tracking-[0.2em] uppercase whitespace-nowrap leading-none font-sans select-none">
+          SALT&amp;PEPPER
+        </span>
+      </div>
+
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-zinc-800/60 bg-[#09090b]/80 backdrop-blur-xl" id="main-header">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-6">
